@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 _mouseDelta;
     private bool _canLook = true;
-    private Rigidbody _rb;
+    public Rigidbody _rb;
 
     private void Awake()
     {
