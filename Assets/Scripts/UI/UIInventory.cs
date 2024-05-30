@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -182,13 +183,25 @@ public class UIInventory : MonoBehaviour
                 switch (_selectedItem._item._consumables[i]._type)
                 {
                     case ConsumableType.Health:
-                        _condition.Heal(_selectedItem._item._consumables[i]._value); break;
+                        StartCoroutine(SlowHeal(_selectedItem._item._consumables[i]._value));
+                        break;
                     //case ConsumableType.Stat:
                         //_condition.Buff(_selectedItem._item._consumables[i]._value); break;
                 }
             }
             RemoveSelctedItem();
         }
+    }
+
+    public IEnumerator SlowHeal(float amount)
+    {
+        float second = 5;
+        for (int i = 0; i < second; i++)
+        {
+            _condition.Heal(amount / second);
+            yield return new WaitForSeconds(1);
+        }
+        yield return null;
     }
 
     public void OnDropButton()
