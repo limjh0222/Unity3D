@@ -33,7 +33,6 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-        Debug.Log(_camCurXRot);
     }
 
     private void LateUpdate()
