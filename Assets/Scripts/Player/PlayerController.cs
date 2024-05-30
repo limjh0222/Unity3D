@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] private float _moveSpeed;
+    public float _moveSpeed;
     [SerializeField] private float _jumpForce;
     private Vector2 _curMovementInput;
     [SerializeField] private LayerMask _groundLayerMask;
@@ -17,8 +18,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _lookSensitivity;
 
     private Vector2 _mouseDelta;
-    private bool _canLook = true;
     public Rigidbody _rb;
+
+    [HideInInspector]
+    public bool _canLook = true;
+
+    public Action _inventory;
 
     private void Awake()
     {
@@ -104,5 +109,21 @@ public class PlayerController : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void OnInventoryButton(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.phase == InputActionPhase.Started)
+        {
+            _inventory?.Invoke();
+            ToggleCursor();
+        }
+    }
+
+    void ToggleCursor()
+    {
+        bool toggle = Cursor.lockState == CursorLockMode.Locked;
+        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
+        _canLook = !toggle;
     }
 }

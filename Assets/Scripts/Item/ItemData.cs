@@ -8,7 +8,7 @@ public enum ItemType
 public enum ConsumableType
 {
     Health,
-    Buff
+    Stat
 }
 
 [System.Serializable]

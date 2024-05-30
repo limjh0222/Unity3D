@@ -49,15 +49,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "ESC",
-                    "type": "Button",
-                    "id": "ab7dfaa0-1cbd-46c6-a726-933f056465c2",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -159,17 +150,6 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "6f243e6f-29ac-4095-b80b-b77093f946ad",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "ESC",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         }

@@ -11,18 +11,19 @@ public class PlayerCondition : MonoBehaviour, IDamagable
     public UICondition _uiCondition;
 
     public Condition _health { get { return _uiCondition._health; } }
+    
 
     public event Action onTakeDamge;
-
-    private void Update()
-    {
-        Heal(_health._passiveValue * Time.deltaTime);
-    }
 
     public void Heal(float amount)
     {
         _health.Add(amount);
     }
+
+    //public void Buff(float amount)
+    //{
+        
+    //}
 
     public void Die()
     {

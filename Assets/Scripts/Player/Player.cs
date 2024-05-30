@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     public ItemData _itemData;
     public Action _addItem;
 
+    public Transform _dropPosition;
+
     private void Awake()
     {
         CharacterManager.Instance.Player = this;
